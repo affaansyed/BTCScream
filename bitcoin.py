@@ -3,6 +3,9 @@ import json
 import requests
 import time
 import os
+from datetime import datetime
+
+
 
 # base variables
 apiKey = 'YOUR_API_KEY'
@@ -24,15 +27,15 @@ def getCurrentRate():
 
 def priceDiffCheck():
     currentRate = getCurrentRate()
-    
+    currentTime = datetime.now().time() 
 
     if (prevRate - currentRate) >= 5:
         os.system('omxplayer yousuffer.mp3')
-        print("BTC DOWN")
+        print('BTC DOWN: (%d)' % currentTime)
         print('BTC RATE = (%d)' % currentRate)
 
     else: 
-        print("BTC UP")
+        print('BTC UP: (%d)' % currentTime)
         print('BTC RATE = (%d)' % currentRate)
 
 
